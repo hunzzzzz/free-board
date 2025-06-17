@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
+    
+  sql:
+    init:
+      mode: never
+
+---
+
+jwt:
+  secret:
+    key: ${JWT_SECRET_KEY:eW91c2h1b2xkZ29hbmRsb3ZleW91cnNlbGZqdXN0aW5iaWViZXI=}

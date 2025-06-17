@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board.domain.user.mapper.UserMapper">
+
+	<resultMap id="userLoginResponse"
+		type="com.example.board.domain.user.dto.response.UserLoginResponse">
+		<id property="userId" column="id" />
+		<result property="role" column="role" />
+		<result property="email" column="email" />
+		<result property="password" column="password" />
+	</resultMap>
+
+	<!-- 회원가입 -->
+	<insert id="signup">
+		INSERT INTO t_board_user(id, email, password, name)
+		VALUES (#{userId, jdbcType=VARCHAR}, #{email}, #{password}, #{name})
+	</insert>
+
+	<select id="isUsingEmail">
+		SELECT count(*)
+		FROM t_board_user
+		WHERE email=#{email}
+	</select>
+
+	<!-- 로그인 -->
+	<select id="getLoginInfo" resultMap="userLoginResponse">
+		SELECT id, role, email, password
+		FROM t_board_user
+		WHERE email=#{email}
+	</select>
+</mapper>

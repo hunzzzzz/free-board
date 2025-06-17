@@ -1,0 +1,18 @@
+-- 테이블 생성
+CREATE TABLE t_board_user
+(
+   id VARCHAR2 (36) PRIMARY KEY,
+   role VARCHAR2 (10) DEFAULT 'USER' NOT NULL,
+   email VARCHAR2 (100) NOT NULL UNIQUE,
+   password VARCHAR2 (255) NOT NULL,
+   name VARCHAR2 (100) NOT NULL UNIQUE,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+-- 트리거 생성 (updated_at)
+CREATE
+OR REPLACE
+   TRIGGER trg_board_user_updated_at BEFORE UPDATE ON t_board_user FOR EACH ROW BEGIN :NEW.updated_at := SYSTIMESTAMP;
+END;
+/

@@ -152,6 +152,7 @@ button[type="submit"]:hover {
 	border: 1px solid #f5c6cb;
 }
 </style>
+<link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div class="container">

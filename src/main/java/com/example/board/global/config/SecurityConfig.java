@@ -40,6 +40,7 @@ public class SecurityConfig {
                     "/api/signup/**",
                     "/login",
                     "/api/login/**",
+                    "/api/posts/**",
                     "/css/**",
                     "/icons/**",
                     "/WEB-INF/views/**",
